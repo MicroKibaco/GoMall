@@ -20,11 +20,27 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile files('libs/zxing.jar')
+    compile files('libs/slf4j-android-1.6.1-RC1.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.7.5.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.7.5.jar')
+    compile files('libs/ShareSDK-Wechat-2.7.5.jar')
+    compile files('libs/ShareSDK-QZone-2.7.5.jar')
+    compile files('libs/ShareSDK-QQ-2.7.5.jar')
+    compile files('libs/ShareSDK-Core-2.7.5.jar')
+    compile files('libs/photoview-library-1.2.2.jar')
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile files('libs/mpchart.jar')
+    compile files('libs/MobTools-2016.0811.1207.jar')
+    compile files('libs/MobCommons-2016.0811.1207.jar')
+    compile files('libs/mina-core-2.0.13.jar')
+    compile files('libs/jpush-android-2.1.0.jar')
+    compile files('libs/gson-2.3.1.jar')
 }
