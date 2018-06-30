@@ -14,7 +14,7 @@ import com.github.microkibaco.gomall.constant.Constant;
  * 主要为我们所有的fragment提供公共的行为或事件
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     protected Activity mActivity;
 
