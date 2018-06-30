@@ -19,39 +19,6 @@ import java.lang.reflect.Method;
 
 @SuppressWarnings("unchecked")
 public class StatusBarUtil {
-    /**
-     * 修改状态栏为全透明
-     */
-
-    @TargetApi(19)
-    public static void transparencyBar(final Activity activity) {
-
-        final Window window = activity.getWindow();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-            // api21新增接口
-            window.setStatusBarColor(Color.TRANSPARENT);
-
-            window.setNavigationBarColor(Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
-            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-
-    }
-
 
     /**
      * 修改状态栏颜色，
@@ -113,29 +80,41 @@ public class StatusBarUtil {
      */
     @TargetApi(Build.VERSION_CODES.M)
     public static void statusBarLightMode(Activity activity, int type) {
-        if (type == 1) {
-            MIUISetStatusBarLightMode(activity.getWindow(), true);
-        } else if (type == 2) {
-            FlymeSetStatusBarLightMode(activity.getWindow(), true);
-        } else if (type == 3) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
 
+        switch (type) {
+            case 1:
+                MIUISetStatusBarLightMode(activity.getWindow(), true);
+                break;
+            case 2:
+                FlymeSetStatusBarLightMode(activity.getWindow(), true);
+                break;
+            case 3:
+                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                break;
+            default:
+                break;
+        }
     }
 
 
     /**
-     * 清除MIUI或flyme或6.0以上版本状态栏黑色字体
+     * 清除MIUI或flyme
+     * 或6.0以上版本状态栏黑色字体
      */
     public static void statusBarDarkMode(Activity activity, int type) {
-        if (type == 1) {
-            MIUISetStatusBarLightMode(activity.getWindow(), false);
-        } else if (type == 2) {
-            FlymeSetStatusBarLightMode(activity.getWindow(), false);
-        } else if (type == 3) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        switch (type) {
+            case 1:
+                MIUISetStatusBarLightMode(activity.getWindow(), false);
+                break;
+            case 2:
+                FlymeSetStatusBarLightMode(activity.getWindow(), false);
+                break;
+            case 3:
+                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                break;
+            default:
+                break;
         }
-
     }
 
 
@@ -196,5 +175,38 @@ public class StatusBarUtil {
             }
         }
         return result;
+    }
+
+
+    /**
+     * 修改状态栏为全透明
+     */
+    @TargetApi(19)
+    private static void transparencyBar(final Activity activity) {
+
+        final Window window = activity.getWindow();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            // api21新增接口
+            window.setStatusBarColor(Color.TRANSPARENT);
+
+            window.setNavigationBarColor(Color.TRANSPARENT);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
     }
 }
