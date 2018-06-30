@@ -1,4 +1,4 @@
-package com.github.microkibaco.gomall.base;
+package com.github.microkibaco.gomall.fragment.base;
 
 import android.app.Activity;
 import android.os.Bundle;

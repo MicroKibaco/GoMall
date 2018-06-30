@@ -1,4 +1,4 @@
-package com.github.microkibaco.gomall.base;
+package com.github.microkibaco.gomall.application;
 
 
 import android.app.Application;

@@ -2,7 +2,7 @@ package com.github.microkibaco.gomall.activity;
 
 import android.view.View;
 
-import com.github.microkibaco.gomall.base.BaseActivity;
+import com.github.microkibaco.gomall.activity.base.BaseActivity;
 
 /**
  * 创建所有首页的fragment,以及fragment
