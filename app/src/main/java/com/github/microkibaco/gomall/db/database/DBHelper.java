@@ -96,18 +96,6 @@ import java.util.ArrayList;
         super(context, name, factory, version, errorHandler);
     }
 
-    public static synchronized DBHelper getInstance() {
-
-        if (mHelper == null) {
-            /*
-             * 这里用全局Application即可
-             */
-            mHelper = new DBHelper();
-        }
-        return mHelper;
-    }
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.beginTransaction();
@@ -121,6 +109,16 @@ import java.util.ArrayList;
             db.endTransaction();
         }
     }
+
+    public static synchronized DBHelper getInstance() {
+
+        if (mHelper == null) {
+            mHelper = new DBHelper();
+        }
+        return mHelper;
+    }
+
+
 
     private void createAllTables(SQLiteDatabase db) {
         /*
@@ -287,7 +285,7 @@ import java.util.ArrayList;
     /**
      * 关闭数据库
      */
-    private void closeDatabase(SQLiteDatabase db) {
+    public void closeDatabase(SQLiteDatabase db) {
         if (db != null && db.isOpen()) {
             db.close();
         }
