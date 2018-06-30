@@ -1,4 +1,8 @@
 package com.github.microkibaco.gomall.fragment;
 
-public class MineFragment {
+import com.github.microkibaco.gomall.fragment.base.BaseFragment;
+
+public class MineFragment extends BaseFragment {
+
+
 }
