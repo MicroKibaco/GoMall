@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/linearLayout"/>
 
-    <LinearLayout
+    <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_weight="1"
         >
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/home_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:background="@drawable/comui_tab_home"
             />
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_image_view"
@@ -54,7 +54,7 @@
             android:visibility="gone"
         >
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/fish_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:background="@drawable/comui_tab_pond"
             />
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fish_image_view"
@@ -81,7 +81,7 @@
             android:layout_weight="1"
         >
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/message_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:background="@drawable/comui_tab_message"
             />
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/message_image_view"
@@ -108,7 +108,7 @@
             android:layout_weight="1"
         >
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/mine_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:background="@drawable/comui_tab_home"
             />
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mine_image_view"
@@ -127,7 +127,7 @@
                 android:textSize="16sp"
             />
         </RelativeLayout>
-    </LinearLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <View
         android:layout_width="match_parent"

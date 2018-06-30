@@ -2,8 +2,10 @@ package com.github.microkibaco.gomall.activity.base;
 
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +14,9 @@ import android.view.WindowManager;
 
 import com.github.microkibaco.gomall.constant.Constant;
 import com.github.microkibaco.gomall.util.StatusBarUtil;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrConfig;
+import com.r0adkll.slidr.model.SlidrPosition;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -55,7 +60,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
 
     private void initUmeng() {
@@ -114,8 +118,30 @@ public abstract class BaseActivity extends AppCompatActivity {
         StatusBarUtil.setStatusBarColor(this, color);
     }
 
+    /**
+     * Activity绑定到滑动关闭,
+     * 在使用了浸淫式状态栏后再用效果就不太好了
+     */
+    public void attachSliDr() {
+        //可以搞一个单例优化一下代码。
+        final SlidrConfig config = new SlidrConfig.Builder()
+                .position(SlidrPosition.LEFT)
+                .sensitivity(1f)
+                .scrimColor(Color.BLACK)
+                .scrimStartAlpha(0.8f)
+                .scrimEndAlpha(0f)
+                .velocityThreshold(2400)
+                .distanceThreshold(0.25f)
+                .edge(true)
+                .edgeSize(0.18f) // The % of the screen that counts as the edge, default 18%
+                .build();
+        Slidr.attach(this, config);
+    }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         switch (requestCode) {
             case Constant.WRITE_READ_EXTERNAL_CODE:
                 if (grantResults.length > 0
