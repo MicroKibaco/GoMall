@@ -52,7 +52,8 @@ public final class DBDataHelper {
                 String sql = SELECT;
                 sql += showColumns != null ? showColumns : "*";
                 sql += FROM + tableName;
-                if (selection != null && selectionArgs != null) {
+                if (selection != null &&
+                        selectionArgs != null) {
                     sql += WHERE + selection + " = " + selectionArgs;
                 }
                 if (orderBy != null) {
@@ -69,7 +70,9 @@ public final class DBDataHelper {
         }
     }
 
-    private void changeToList(Cursor cursor, List<BaseModel> moduleList, Class<?> cls) {
+    private void changeToList(Cursor cursor,
+                              List<BaseModel> moduleList,
+                              Class<?> cls) {
         // 取出所有的列名
         final int count = cursor.getCount();
         BaseModel module;
@@ -91,7 +94,8 @@ public final class DBDataHelper {
         }
     }
 
-    private BaseModel changeToModule(Cursor cursor, Class<?> cls) {
+    private BaseModel changeToModule(Cursor cursor,
+                                     Class<?> cls) {
         synchronized (dbHelper) {
             // 取出所有的列名
             final String[] columnNames = cursor.getColumnNames();
@@ -134,7 +138,7 @@ public final class DBDataHelper {
                                         final String orderBy,
                                         final Class<?> cls) {
         synchronized (dbHelper) {
-            ArrayList<BaseModel> moduleList = new ArrayList<BaseModel>();
+            final ArrayList<BaseModel> moduleList = new ArrayList<>();
             SQLiteDatabase db = null;
             try {
                 db = dbHelper.getReadableDatabase();
@@ -147,7 +151,7 @@ public final class DBDataHelper {
                 if (orderBy != null) {
                     sql += ORDER_BY + orderBy;
                 }
-                Cursor cursor = db.rawQuery(sql, null);
+                final Cursor cursor = db.rawQuery(sql, null);
                 changeToList(cursor, moduleList, cls);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -169,7 +173,7 @@ public final class DBDataHelper {
 
         SQLiteDatabase database = null;
         Cursor cursor = null;
-        final ArrayList<BaseModel> moduleList = new ArrayList<BaseModel>();
+        final ArrayList<BaseModel> moduleList = new ArrayList<>();
         synchronized (dbHelper) {
             try {
                 database = dbHelper.getReadableDatabase();
@@ -189,7 +193,9 @@ public final class DBDataHelper {
     /**
      * 删除数据
      */
-    public int delete(final String table, final String whereClause, final String[] whereArgs) {
+    public int delete(final String table,
+                      final String whereClause,
+                      final String[] whereArgs) {
         synchronized (dbHelper) {
             return dbHelper.delete(table, whereClause, whereArgs);
         }

@@ -94,7 +94,7 @@ public class GoMallUtil {
         final ArrayList<String> urls = value.url;
         int start = 0;
         for (int i = 0; i < titles.length; i++) {
-            ReCommandBodyValue tempValue = new ReCommandBodyValue();
+            final ReCommandBodyValue tempValue = new ReCommandBodyValue();
             tempValue.title = titles[i];
             tempValue.info = infos[i];
             tempValue.price = prices[i];

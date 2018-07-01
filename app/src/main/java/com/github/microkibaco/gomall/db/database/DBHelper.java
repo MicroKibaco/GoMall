@@ -124,22 +124,25 @@ import java.util.ArrayList;
         /*
          * 创建基金列表
          */
-        String[] cloumns = new String[]{FUND_CODE + TEXT_TYPE, FUND_ABBREV + TEXT_TYPE, FUND_SPELL + TEXT_TYPE,
-                FUND_TYPE + INTEGER_TYPE};
+        String[] cloumns = new String[]{FUND_CODE + TEXT_TYPE, FUND_ABBREV + TEXT_TYPE,
+                FUND_SPELL + TEXT_TYPE, FUND_TYPE + INTEGER_TYPE};
+
         createTable(db, FUND_LIST_TABLE, cloumns);
 
         /*
          * 创建基金浏览列表
          */
-        cloumns = new String[]{FUND_CODE + TEXT_TYPE, FUND_ABBREV + TEXT_TYPE, FUND_SPELL + TEXT_TYPE,
-                FUND_TYPE + INTEGER_TYPE};
+        cloumns = new String[]{FUND_CODE + TEXT_TYPE, FUND_ABBREV + TEXT_TYPE,
+                FUND_SPELL + TEXT_TYPE, FUND_TYPE + INTEGER_TYPE};
+
         createTable(db, FUND_BROWSE_TABLE, cloumns);
 
         /*
          * 创建第三方用户信息表
          */
-        cloumns = new String[]{USER_ID + TEXT_TYPE, USER_NAME + TEXT_TYPE, MOBILE + TEXT_TYPE,
-                PLATFORM + INTEGER_TYPE};
+        cloumns = new String[]{USER_ID + TEXT_TYPE, USER_NAME + TEXT_TYPE,
+                               MOBILE + TEXT_TYPE, PLATFORM + INTEGER_TYPE};
+
         createTable(db, THIRD_LOGIN_TABLE, cloumns);
     }
 
@@ -216,8 +219,11 @@ import java.util.ArrayList;
      * 更新数据
      */
 
-    public int update(final String table, final ContentValues values, final String whereClause,
+    public int update(final String table,
+                      final ContentValues values,
+                      final String whereClause,
                       final String[] whereArgs) {
+
         SQLiteDatabase database = null;
         try {
             database = getWritableDatabase();
