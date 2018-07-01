@@ -69,15 +69,15 @@ public class HomeActivity extends BaseActivity {
         mHomeImageView.setBackgroundResource(R.drawable.comui_tab_home_selected);
         mHomeFragment = new HomeFragment();
         fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.content_layout, mHomeFragment);
-        fragmentTransaction.commit();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_layout, mHomeFragment);
+        ft.commit();
     }
 
 
     @OnClick({R.id.home_layout_view, R.id.message_layout_view, R.id.mine_layout_view})
     public void onViewClicked(View view) {
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentTransaction ft = fm.beginTransaction();
 
         switch (view.getId()) {
             case R.id.home_layout_view:
@@ -88,20 +88,20 @@ public class HomeActivity extends BaseActivity {
                 mMessageImageView.setBackgroundResource(R.drawable.comui_tab_message);
                 mMineImageView.setBackgroundResource(R.drawable.comui_tab_person);
 
-                hideFragment(mCommonFragmentOne, fragmentTransaction);
-                hideFragment(mMessageFragment, fragmentTransaction);
-                hideFragment(mMineFragment, fragmentTransaction);
+                hideFragment(mCommonFragmentOne, ft);
+                hideFragment(mMessageFragment, ft);
+                hideFragment(mMineFragment, ft);
 
 
                 if (mHomeFragment == null) {
 
                     mHomeFragment = new HomeFragment();
-                    fragmentTransaction.add(R.id.content_layout, mHomeFragment);
+                    ft.add(R.id.content_layout, mHomeFragment);
 
                 } else {
 
                     mCurrent = mHomeFragment;
-                    fragmentTransaction.show(mHomeFragment);
+                    ft.show(mHomeFragment);
 
                 }
                 break;
@@ -113,19 +113,19 @@ public class HomeActivity extends BaseActivity {
                 mFishImageView.setBackgroundResource(R.drawable.comui_tab_pond);
                 mMineImageView.setBackgroundResource(R.drawable.comui_tab_person);
 
-                hideFragment(mCommonFragmentOne, fragmentTransaction);
-                hideFragment(mHomeFragment, fragmentTransaction);
-                hideFragment(mMineFragment, fragmentTransaction);
+                hideFragment(mCommonFragmentOne, ft);
+                hideFragment(mHomeFragment, ft);
+                hideFragment(mMineFragment, ft);
 
                 if (mMessageFragment == null) {
 
                     mMessageFragment = new MessageFragment();
-                    fragmentTransaction.add(R.id.content_layout, mMessageFragment);
+                    ft.add(R.id.content_layout, mMessageFragment);
 
                 } else {
 
                     mCurrent = mMessageFragment;
-                    fragmentTransaction.show(mMessageFragment);
+                    ft.show(mMessageFragment);
 
                 }
                 break;
@@ -137,24 +137,24 @@ public class HomeActivity extends BaseActivity {
                 mFishImageView.setBackgroundResource(R.drawable.comui_tab_pond);
                 mMessageImageView.setBackgroundResource(R.drawable.comui_tab_message);
 
-                hideFragment(mCommonFragmentOne, fragmentTransaction);
-                hideFragment(mMessageFragment, fragmentTransaction);
-                hideFragment(mHomeFragment, fragmentTransaction);
+                hideFragment(mCommonFragmentOne, ft);
+                hideFragment(mMessageFragment, ft);
+                hideFragment(mHomeFragment, ft);
 
                 if (mMineFragment == null) {
 
                     mMineFragment = new MineFragment();
-                    fragmentTransaction.add(R.id.content_layout, mMineFragment);
+                    ft.add(R.id.content_layout, mMineFragment);
 
                 } else {
 
                     mCurrent = mMineFragment;
-                    fragmentTransaction.show(mMineFragment);
+                    ft.show(mMineFragment);
 
                 }
                 break;
         }
-        fragmentTransaction.commit();
+        ft.commit();
     }
 
     private void hideFragment(Fragment fragment, FragmentTransaction ft) {
