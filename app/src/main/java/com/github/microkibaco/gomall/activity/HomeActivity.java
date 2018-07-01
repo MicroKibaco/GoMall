@@ -10,9 +10,9 @@ import android.view.View;
 
 import com.github.microkibaco.gomall.R;
 import com.github.microkibaco.gomall.activity.base.BaseActivity;
-import com.github.microkibaco.gomall.fragment.HomeFragment;
-import com.github.microkibaco.gomall.fragment.MessageFragment;
-import com.github.microkibaco.gomall.fragment.MineFragment;
+import com.github.microkibaco.gomall.fragment.home.HomeFragment;
+import com.github.microkibaco.gomall.fragment.home.MessageFragment;
+import com.github.microkibaco.gomall.fragment.home.MineFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
