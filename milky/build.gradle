@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'realm-android' // 依赖Realm数据库，插件化依赖
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -27,5 +27,20 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    //添加友盟统计
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.squareup.okhttp3:okhttp:3.3.0'
+    // okHttp依赖
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+        exclude module: 'support-v4'
+    }
+    compile 'com.r0adkll:slidableactivity:2.0.5'
+    // 滑动关闭Activity库
+    compile 'com.alipay.euler:andfix:0.5.0@aar'
 }

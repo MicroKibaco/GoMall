@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     >
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/framing_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +14,7 @@
         android:visibility="gone"
         />
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/xadsdk_to_full_view"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -24,7 +24,7 @@
         android:background="@drawable/xadsdk_ad_mini"
         />
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/xadsdk_small_play_btn"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -43,7 +43,7 @@
         android:visibility="gone"
         />
     -->
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/loading_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
